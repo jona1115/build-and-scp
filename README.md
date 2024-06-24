@@ -2,7 +2,7 @@
 When developing for a external device from a host (like developing for a embedded system from Yocto/Petalinux), we often need to use the host device's cross compiler to compile our code, and scp the executable to the device. This is a simple task yet tedious. This script will do it for you.
 
 # How to use?
-1. Download/copy-paste the script to your device.
+1. Download/copy-paste the script to your Linux machine.
 2. Set permission: `chmod +x build-and-scp.sh`
 3. Run it: `./build-and-scp.sh <compile_path> <env_init_script> <compile_command> <exe_path> <target_path>`
    Arguments:
