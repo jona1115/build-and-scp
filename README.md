@@ -11,4 +11,6 @@ When developing for a external device from a host (like developing for a embedde
    3. `compile_command`: The command you run at `compile_path` to compile your code.
    4. `exe_path`: The path where the compiled executable go, this will be the thing being scp-ed to the device.
    5. `target_path`: The destination in the scp command.  
-Example: ./build-and-scp.sh /home/jonathan/src "bitbake -c compile -f abc" /home/jonathan/build/src/abc.exe root@192.168.1.1:~
+
+Example:  
+> ./build-and-scp.sh /home/jonathan/src "bitbake -c compile -f abc" /home/jonathan/build/src/abc.exe root@192.168.1.1:~
