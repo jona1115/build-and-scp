@@ -32,8 +32,13 @@ scp "$exe_path" "$target_path"
 
 # Check if the scp command was successful
 if [ "$?" -ne 0 ]; then
-    echo "Failed to copy the executable to the target path."
-    exit 1
+    echo "Failed to copy the executable to the target path. Trying to delete the remote file and copy again."
+    ssh ${target_path%:*} "rm -f ${target_path#*:}"
+    scp "$exe_path" "$target_path"
+    if [ "$?" -ne 0 ]; then
+        echo "Failed to copy the executable to the target path even after deleting the remote file."
+        exit 1
+    fi
 fi
 
 echo "Successfully compiled and copied the executable to the target path."
